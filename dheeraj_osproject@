@@ -5,15 +5,15 @@
 
 struct pro
 {
-  char name;
-  int pri;
-  int b_time;
-  int pid;
-  int w_time;
-  int t_time;
-  int r_time;
-  int a_time;
-  int completed;
+	char name;
+	int pri;
+	int b_time;
+	int pid;
+	int w_time;
+	int t_time;
+	int r_time;
+	int a_time;
+	int completed;
 }p[10];
 
 
@@ -46,15 +46,15 @@ int deque()
 void sortByArr()
 {
   struct pro temp;
-  int s,d;
-  for(s=0;s<n-1 ; s++)
-  for(d = d+1;d<n;d++)
+  int i,j;
+  for(i=0;j<n-1 ; i++)
+  for(j = i+1;j<n;j++)
    {
-     if(p[s].a_time>p[d].a_time)
+     if(p[i].a_time>p[j].a_time)
        {
-          temp=p[s];
-          p[s]=p[d];
-          p[d]=temp;
+          temp=p[i];
+          p[i]=p[j];
+          p[j]=temp;
        }
     }
 }
@@ -78,7 +78,7 @@ void pQueue(struct pro *,int);
 
 int qu1_n=0,qu2_n=0,qu3_n=0; 
 struct pro *qu1,*qu2,*qu3;
-int tq = 10,count=0;
+int tq=10,count=0;
 
 
 void getIn()
@@ -132,32 +132,29 @@ void pQueue(struct pro *q,int si)
 	printf("\n\n");
 }
 
-
 void pQueueI(struct pro p)
 {
-        printf("\n");
-	printf("%d\t\t%d\t\t\t%d\t\t\t%d\t\t\t%d\t\t%d",p.pid,p.pri,p.b_time,p.w_time,p.t_time,p.a_time);
+	printf("\n%d\t\t%d\t\t\t%d\t\t\t%d\t\t\t%d\t\t%d",p.pid,p.pri,p.b_time,p.w_time,p.t_time,p.a_time);
 }
-
 
 void calcWaTime(struct pro *q,int si)
 {
-   int i;
-   q[0].w_time = 0;
-   for(i=1;i<si;i++)
-    {
-       q[i].w_time = q[i-1].w_time + q[i-1].b_time;
-    }
+	int i;
+	q[0].w_time = 0;
+	for(i=1;i<si;i++)
+	{
+		q[i].w_time = q[i-1].w_time + q[i-1].b_time;
+	}
 }
 
 
 void calcTurnArTime(struct pro *q,int si)
 {
-    q[0].w_time = 0;
-    for(int i=0;i<si;i++)
-      {
-	q[i].t_time = q[i].w_time + q[i].b_time; 
-      }
+	q[0].w_time = 0;
+	for(int i=0;i<si;i++)
+	{
+		q[i].t_time = q[i].w_time + q[i].b_time;
+	}
 }
 
 void RRAlgo(struct pro *q,int si)
@@ -175,11 +172,13 @@ void RRAlgo(struct pro *q,int si)
    {
      avgwt+=q[i].w_time;
      avgtt+=q[i].t_time;
-     printf("\n%c\t%d\t%d\t%d\t%d",q[i].name,q[i].a_time,q[i].b_time,q[i].w_time,q[i].t_time);
+     printf("\n%c\t\t%d\t\t%d\t\t%d\t\t%d",q[i].name,q[i].a_time,q[i].b_time,q[i].w_time,q[i].t_time);
    }
+   getch();
+   system("COLOR 30");
+   system("CLS");
    printf("\nAverage waiting time:%f",avgwt/n);
    printf("\nAverage Turnaround time:%f",avgtt/n);
-   getch();
 }
 
 void RR()
@@ -252,7 +251,7 @@ int main()
 	system("COLOR FC");
 	getIn();
 	system("CLS");
-        system("COLOR 24");
+    system("COLOR 24");
 	int i=1;
 	while(n>0)
 	{
