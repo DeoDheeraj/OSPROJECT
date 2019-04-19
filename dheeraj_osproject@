@@ -13,7 +13,7 @@ struct pro
 	int t_time;
 	int r_time;
 	int a_time;
-	int completed=0;
+	int completed;
 }p[10];
 
 
@@ -67,6 +67,7 @@ void pQueue(struct pro *q,int si);
 void RR();
 void PS();
 void FCFSe();
+void pQueueI(struct pro);
 void pQueue(struct pro *,int);
 
 
@@ -120,16 +121,20 @@ void getIn()
 
 void pQueue(struct pro *q,int si)
 {	
-    struct pro p;
 	calcWaTime(q,si);
 	calcTurnArTime(q,si);
 	printf("\nPId \t\tPriority \t\tBurst \t\tWaiting \t\tTurnAround \t\tArrival");
 	printf("\n================================================================================\n");
 	for(int i=0;i<si;i++)
 	{
-		printf("%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d",p.pid,p.pri,p.b_time,p.w_time,p.t_time,p.a_time);
+		pQueueI(q[i]);
 	}
 	printf("\n\n");
+}
+
+void pQueueI(struct pro p)
+{
+	printf("\n%d\t\t%d\t\t\t%d\t\t\t%d\t\t\t%d\t\t%d",p.pid,p.pri,p.b_time,p.w_time,p.t_time,p.a_time);
 }
 
 
