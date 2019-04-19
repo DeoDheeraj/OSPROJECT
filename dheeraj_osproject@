@@ -251,7 +251,7 @@ int main()
 	system("COLOR FC");
 	getIn();
 	system("CLS");
-    system("COLOR 42");
+        system("COLOR 24");
 	int i=1;
 	while(n>0)
 	{
