@@ -134,7 +134,8 @@ void pQueue(struct pro *q,int si)
 
 void pQueueI(struct pro p)
 {
-	printf("\n%d\t\t%d\t\t\t%d\t\t\t%d\t\t\t%d\t\t%d",p.pid,p.pri,p.b_time,p.w_time,p.t_time,p.a_time);
+        printf("\n");
+	printf("%d\t\t%d\t\t\t%d\t\t\t%d\t\t\t%d\t\t%d",p.pid,p.pri,p.b_time,p.w_time,p.t_time,p.a_time);
 }
 
 
